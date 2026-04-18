@@ -15,7 +15,14 @@
 
 /Lib/
 /Scripts/
-/vs-plugins/
+/vs-plugins/*
+!/vs-plugins/models/
+!/vs-plugins/models/**/
+!/vs-plugins/models/**
+/vs-plugins/models/*.engine
+/vs-plugins/models/*.engine.cache
+/vs-plugins/models/**/*.engine
+/vs-plugins/models/**/*.engine.cache
 /vs-coreplugins/
 /vs-scripts/
 /vsgenstubs4/
