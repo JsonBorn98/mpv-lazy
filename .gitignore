@@ -3,6 +3,7 @@
 /portable_config/saved-props.json
 /*.log
 /desktop/
+/backups/
 
 # Root-level portable runtime payloads
 /*.dll
