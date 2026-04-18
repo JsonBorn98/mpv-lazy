@@ -1,0 +1,21 @@
+* text=auto
+
+*.conf text eol=lf
+*.lua text eol=lf
+*.vpy text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.glsl text eol=lf
+*.hook text eol=lf
+
+*.bat text eol=crlf
+
+*.dll binary
+*.exe binary
+*.pyd binary
+*.zip binary
+*.ico binary
+*.ttf binary
+*.otf binary
+*.pdf binary

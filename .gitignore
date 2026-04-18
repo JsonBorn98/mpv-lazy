@@ -1,0 +1,37 @@
+# Mutable runtime state
+/portable_config/_cache/
+/portable_config/saved-props.json
+/*.log
+/desktop/
+
+# Root-level portable runtime payloads
+/*.dll
+/*.com
+/*.exe
+/*.pyd
+/*.cat
+/*.zip
+
+/Lib/
+/Scripts/
+/vs-plugins/
+/vs-coreplugins/
+/vs-scripts/
+/vsgenstubs4/
+
+# Bundled helper/runtime files that are not useful for config history
+/get-pip.py
+/python3.dll
+/python314.dll
+/python314.zip
+/MANIFEST.in
+/mpv_manual.pdf
+/python.cat
+/select.pyd
+/portable.vs
+/vsgenstubs.py
+/vsrepo.py
+/VSScript.dll
+/VSScriptPython38.dll
+/VSVFW.dll
+/yt-dlp.exe
