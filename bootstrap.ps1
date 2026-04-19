@@ -3,7 +3,7 @@ param(
     [string]$TargetDir,
     [string]$ScoopApp,
     [string]$ManifestPath = 'deploy/manifest.json',
-    [string]$ConfigRepoUrl,
+    [string]$ConfigRepoUrl = 'https://github.com/JsonBorn98/mpv-lazy.git',
     [string]$ConfigRef = 'main',
     [string]$ConfigCheckoutDir,
     [string]$PackageId,

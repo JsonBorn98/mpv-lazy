@@ -22,12 +22,16 @@
 .\bootstrap.ps1 -ScoopApp mpv
 ```
 
-如果你希望新电脑直接从 GitHub 远端仓库拉取你的配置，而不是先手动克隆，再运行：
+上面这条命令现在会默认从你的 GitHub 仓库拉最新配置：
+
+- `https://github.com/JsonBorn98/mpv-lazy.git`
+
+如果你希望显式写出来，也可以这样运行：
 
 ```powershell
 .\bootstrap.ps1 `
   -ScoopApp mpv `
-  -ConfigRepoUrl https://github.com/<you>/<your-mpv-config>.git
+  -ConfigRepoUrl https://github.com/JsonBorn98/mpv-lazy.git
 ```
 
 如果你的 `scoop` 包名不是 `mpv`，就把 `-ScoopApp` 换成你自己的包名。  
@@ -53,7 +57,7 @@
 ```powershell
 .\bootstrap.ps1 `
   -ScoopApp mpv `
-  -ConfigRepoUrl https://github.com/<you>/<your-mpv-config>.git `
+  -ConfigRepoUrl https://github.com/JsonBorn98/mpv-lazy.git `
   -AddonArchive C:\Downloads\mpv-lazy-vsNV.7z
 ```
 
@@ -62,7 +66,7 @@
 ```powershell
 .\bootstrap.ps1 `
   -ScoopApp mpv `
-  -ConfigRepoUrl https://github.com/<you>/<your-mpv-config>.git `
+  -ConfigRepoUrl https://github.com/JsonBorn98/mpv-lazy.git `
   -AddonUrl https://example.invalid/mpv-lazy-vsNV.7z `
   -NoChecksum
 ```
@@ -92,6 +96,12 @@
 ```
 
 这条路径仍然支持附加包叠加与配置同步。
+
+如果你偶尔就是想强制使用当前本地工作树，而不是默认去 GitHub 拉最新配置，可以显式传空字符串：
+
+```powershell
+.\bootstrap.ps1 -ScoopApp mpv -ConfigRepoUrl ''
+```
 
 ## 日常更新
 

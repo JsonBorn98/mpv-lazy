@@ -1,33 +1,59 @@
-![](https://github.com/hooke007/mpv_PlayKit/blob/lite/Temp/mpv_PK.jpg)
+# JsonBorn98 的个人 mpv 自动部署仓库
 
-# mpv播放器折腾记录
+这个仓库不是上游 `mpv-lazy` 的完整运行时镜像，而是我自己的 `mpv` 配置、模型资源和部署脚本仓库。
 
-_从萌新到大白，<s>用前嫌麻烦</s> 用后真香_  
-[命令行播放器 mpv](https://github.com/mpv-player/mpv) 的设置历史存档（windows10/11）
+它的目标很直接：
 
-前往上方的 [**📖Wiki 维基版块📖**](../../wiki) 查看文档导航和关于子目录中各文件的说明
+- 用 `scoop` 管理 `mpv` / `mpv-lazy` 本体更新
+- 用这个仓库同步我的个人 `portable_config`
+- 保留我实际会用到的 `vs-plugins/models`
+- 避免把 `_cache`、`saved-props.json`、`.engine`、`.engine.cache` 这类运行时产物带进部署资产
 
-跨电脑部署、Scoop 场景下的配置同步、缓存清理与回滚说明见 [DEPLOY.md](DEPLOY.md)
+## 这个仓库包含什么
 
-如有自定义的需求，建议在原档文件基础上修改；如果另自行新建文本，注意编码最好为 **UTF-8** ，换行符为 **LF** ，否则mpv可能无法识别  
+- `portable_config/`
+  个人配置层，已经纳入版本管理
+- `vs-plugins/models/`
+  模型资源层，保留模型本体，排除运行时编译缓存
+- `bootstrap.ps1`
+  新电脑或新运行目录的入口脚本
+- `deploy.ps1`
+  日常更新、清缓存、回滚入口
+- `deploy/manifest.json`
+  部署清单，记录默认基础包、附加包和分层同步规则
 
-从零开始接触mpv且不使用懒人包的话可参考
-- [《win10/11 mpv播放器通用教程》](https://hooke007.github.io/unofficial/mpv_start.html)  
+## 推荐用法
 
-## 主要分支
+如果本机已经用 `scoop` 安装好了 `mpv`，直接运行：
 
-- [**main**](https://github.com/hooke007/mpv_PlayKit/tree/main) 当前使用与曾使用过的全部文件（附详细说明、持续维护）
-- [**lite**](https://github.com/hooke007/mpv_PlayKit/tree/lite) 懒人包的核心设置同步
+```powershell
+.\bootstrap.ps1 -ScoopApp mpv
+```
 
-## 懒人包 mpv-lazy
+默认会从这个仓库拉最新配置：
 
-懒人包是解压即可使用的完整解决方案  
-使用前务必完整阅读 [《新快速说明》](https://github.com/hooke007/mpv_PlayKit/discussions/194)  
+- `https://github.com/JsonBorn98/mpv-lazy.git`
 
-下载请见 [**🏷发布版块 Releases🏷**](../../releases)  
-反馈前往 [**💬讨论版块 Discussions🗨️**](../../discussions)
+如果我已经手动下载了 `vsNV` 附加包，也可以一起叠加：
 
-## 预览
+```powershell
+.\bootstrap.ps1 `
+  -ScoopApp mpv `
+  -AddonArchive C:\Downloads\mpv-lazy-vsNV.7z
+```
 
-![](https://github.com/hooke007/mpv_PlayKit/blob/lite/Temp/mpv-lazy-lite.png)  
-![](https://github.com/hooke007/mpv_PlayKit/blob/obs/Temp/IMG/index-%E6%96%B0%E7%95%8C%E9%9D%A2%E4%B8%8E%E4%B8%8A%E4%B8%8B%E6%96%87%E8%8F%9C%E5%8D%95.webp)
+## 日常维护
+
+- 首次部署、Scoop 工作流、附加包、缓存清理、回滚
+  见 [DEPLOY.md](DEPLOY.md)
+- 想看原本上游风格的说明文案
+  见 [README.upstream.MD](README.upstream.MD)
+
+## 与上游的关系
+
+这个仓库基于这些上游内容做个人化维护：
+
+- [hooke007/mpv_PlayKit](https://github.com/hooke007/mpv_PlayKit)
+- [mpv-player/mpv](https://github.com/mpv-player/mpv)
+
+这里的重点不是继续整理一份通用懒人包说明，而是把“我自己的配置如何稳定迁移到另一台 Windows 电脑”这件事做顺。
