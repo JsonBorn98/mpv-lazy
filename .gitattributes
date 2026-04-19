@@ -8,6 +8,7 @@
 *.json text eol=lf
 *.glsl text eol=lf
 *.hook text eol=lf
+*.ps1 text eol=lf
 
 *.bat text eol=crlf
 

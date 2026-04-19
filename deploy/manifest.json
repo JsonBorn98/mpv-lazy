@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "defaultPackage": "playkit-20260210-standard",
+  "packages": [
+    {
+      "id": "playkit-20260210-standard",
+      "repo": "hooke007/mpv_PlayKit",
+      "tag": "20260210",
+      "variant": "standard",
+      "assetName": "manual-download-standard-package",
+      "downloadUrl": "",
+      "sha256": "",
+      "archiveType": "manual",
+      "extractorHint": "Download the standard mpv-lazy package for release 20260210, then pass -BaseArchive or -BaseDirectory.",
+      "notes": "Release 2026CJ published on February 10, 2026. The upstream release notes list mpv git-20260210-3847a81, Python 3.14.3, yt-dlp 2026.02.04, VS R73.",
+      "releasePageUrl": "https://github.com/hooke007/mpv_PlayKit/releases/tag/20260210",
+      "downloadPageUrl": "https://1drv.ms/u/s%21Amu3TH7_M0USmluOkP5YX_puVBXT?e=XlWLFk"
+    },
+    {
+      "id": "playkit-20260210-novs",
+      "repo": "hooke007/mpv_PlayKit",
+      "tag": "20260210",
+      "variant": "noVS",
+      "assetName": "manual-download-noVS-package",
+      "downloadUrl": "",
+      "sha256": "",
+      "archiveType": "manual",
+      "extractorHint": "Download the noVS mpv-lazy package for release 20260210, then pass -BaseArchive or -BaseDirectory.",
+      "notes": "Use this when you intentionally want a smaller upstream base and plan to layer extra VS-related content afterwards.",
+      "releasePageUrl": "https://github.com/hooke007/mpv_PlayKit/releases/tag/20260210",
+      "downloadPageUrl": "https://1drv.ms/u/s%21Amu3TH7_M0USmluOkP5YX_puVBXT?e=XlWLFk"
+    }
+  ],
+  "addons": [
+    {
+      "id": "playkit-20260210-vsnv",
+      "repo": "hooke007/mpv_PlayKit",
+      "tag": "20260210",
+      "variant": "vsNV",
+      "assetName": "manual-download-vsNV-addon",
+      "downloadUrl": "",
+      "sha256": "",
+      "archiveType": "manual",
+      "extractorHint": "Download the vsNV add-on archive from release 20260210, then pass -AddonArchive.",
+      "notes": "Optional CUDA / NV filter supplement published alongside the upstream release assets.",
+      "releasePageUrl": "https://github.com/hooke007/mpv_PlayKit/releases/tag/20260210",
+      "downloadPageUrl": "https://1drv.ms/u/s%21Amu3TH7_M0USmluOkP5YX_puVBXT?e=XlWLFk",
+      "fileNameHint": "*vsNV*"
+    }
+  ],
+  "sourceLayers": [
+    {
+      "id": "personal-config",
+      "source": "portable_config",
+      "target": "portable_config",
+      "exclude": [
+        "_cache/**",
+        "saved-props.json"
+      ]
+    },
+    {
+      "id": "models",
+      "source": "vs-plugins/models",
+      "target": "vs-plugins/models",
+      "exclude": [
+        "*.engine",
+        "*.engine.cache",
+        "**/*.engine",
+        "**/*.engine.cache"
+      ]
+    }
+  ],
+  "cacheRules": [
+    "portable_config/_cache",
+    "portable_config/_cache/**",
+    "portable_config/saved-props.json",
+    "vs-plugins/models/*.engine",
+    "vs-plugins/models/*.engine.cache",
+    "vs-plugins/models/**/*.engine",
+    "vs-plugins/models/**/*.engine.cache"
+  ],
+  "backupPolicy": {
+    "retain": 2
+  }
+}
