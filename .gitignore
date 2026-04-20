@@ -1,6 +1,9 @@
 # Mutable runtime state
 /portable_config/_cache/
 /portable_config/saved-props.json
+/portable_config.original/
+/install.json
+/manifest.json
 /*.log
 /desktop/
 /backups/
