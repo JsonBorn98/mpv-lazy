@@ -36,7 +36,8 @@ def _resolve_trt_shapes(src_clip: vs.VideoNode, max_limit: list[int]) -> tuple[l
 ############
 
 RIFE_H_Pre = 1080
-RIFE_Model = 46
+RIFE_Model = 426
+Turbo = 2
 Fps_Num = 2
 Fps_Den = 1
 Sc_Mode = 1
@@ -44,12 +45,12 @@ Gpu = 0
 Gpu_T = 2
 RIFE_Ws_Size = 0
 
-UAI_H_Pre = 720
-UAI_Model = "Sirosky_Ani4Kv2_UltraCompact_x2_fp16_op17.onnx"
+UAI_H_Pre = 1080
+UAI_Model = "2x_AnimeJaNai_HD_V3_SuperUltraCompact.onnx"
 Fp16_Qnt = True
 St_Eng = False
-Res_Opt = [1280, 720]
-Res_Max = [1920, 1080]
+Res_Opt = [1920, 1080]
+Res_Max = [3840, 2160]
 UAI_Ws_Size = 0
 H_Max = 2160
 Lk_Fmt = False
@@ -60,7 +61,7 @@ clip = k7f.RIFE_NV(
     clip,
     model=RIFE_Model,
     int8_qnt=False,
-    turbo=2,
+    turbo=Turbo,
     fps_in=Src_Fps,
     fps_num=Fps_Num,
     fps_den=Fps_Den,

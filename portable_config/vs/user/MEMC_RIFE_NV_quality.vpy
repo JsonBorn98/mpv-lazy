@@ -22,8 +22,9 @@ def _resolve_src_fps(src_clip: vs.VideoNode, fallback: float = 23.976) -> float:
 # 用户选项 #
 ############
 
-H_Pre = 2160
-Model = 46
+H_Pre = 1440
+Model = 4262
+Turbo = 2
 Fps_Num = 2
 Fps_Den = 1
 Sc_Mode = 2
@@ -39,7 +40,7 @@ clip = k7f.RIFE_NV(
     clip,
     model=Model,
     int8_qnt=False,
-    turbo=2,
+    turbo=Turbo,
     fps_in=Src_Fps,
     fps_num=Fps_Num,
     fps_den=Fps_Den,
